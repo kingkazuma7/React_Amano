@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コンポーネントとステート</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+</head>
+
+<body>
+  <div id='main'></div>
+  <script>
+    // コンポーネントの定義
+    var MyComponent = React.createClass({
+      getInitialState: function() { //1 初期化
+        return {count: 0}
+      },
+      render: function() {
+        return React.DOM.div( //2
+         null, 
+         React.DOM.input({
+          type: 'text',
+          onChange: this.doChange
+         }),
+         React.DOM.span(null, this.state.count) //3
+         );
+      },
+      doChange: function(e) {
+        this.setState({count: e.target.value.length}); //4
+      }
+    });
+
+    // コンポーネントの利用
+    ReactDOM.render(
+      React.createElement(MyComponent, {val: 'hoge'}),
+      document.getElementById('main')
+      );
+  </script>
+</body>
+
+</html>

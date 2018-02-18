@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コンポーネント</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+</head>
+
+<body>
+  <div id='main'></div>
+  <script>
+    // コンポーネントの定義
+    var MyComponent = React.createClass({
+      render: function() {
+        return ReactDOM.input({ //1コンビニエンスラッパー
+          type: 'text',
+          placeeeholder: '値を入力してEnterを押下',
+          onKeyPress: this.showAlert //2メソッド割り当て
+        });
+      },
+
+      showAlert: function(e) { //3呼び出しメソッドの定義
+        if (e.key === 'Enter' && e.target.value) {
+          alert(e.target.value);
+        }
+      }
+
+    });
+
+    // コンポーネントの利用
+  </script>
+</body>
+
+</html>

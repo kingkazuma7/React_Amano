@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ライフサイクルメソッド</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+</head>
+
+<body>
+  <div id='main'></div>
+  <script>
+    // コンポーネントの定義
+    var MyComponent = React.createClass({
+      getInitialState: function() {
+        return {count: 0}
+      },
+      render: function() {
+        return React.DOM.div(
+          null,
+          React.DOM.input({
+            type: 'text',
+            onChange: this.doChange
+          }),
+          React.DOM.span(null, this.state.count)
+          );
+      },
+      doChange: function(e) {
+        this.setState({count: e.target.value.length});
+      },
+      componentDidMount: function() {
+        console.log('マウントされました');
+      },
+      componentWillUpdate: function(nextProps, nextState) {
+        console.log('ステートが次の値に更新されます', nextState);
+      }
+    });
+
+    // コンポーネントの利用
+  </script>
+</body>
+
+</html>
