@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>JSX比較</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+</head>
+
+<body>
+  <script>
+      render: function() {
+      return (
+        <div>
+          <input type="text" onChange={this.doChange}></input>
+          <span>{this.state.count}</span>
+        </div>
+      );
+    }
+  </script>
+</body>
+
+</html>

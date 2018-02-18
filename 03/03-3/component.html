@@ -15,8 +15,9 @@
       getInitialState: function() { //1 初期化
         return {count: 0}
       },
-      render: function() {
-        return React.DOM.div( //2
+      render: function() { //render関数はルート要素一つしか返却不可
+        return React.DOM.div( 
+        //2 divの子要素inputとstateと連動するspanを生成  
          null, 
          React.DOM.input({
           type: 'text',
