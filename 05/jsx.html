@@ -8,15 +8,32 @@
 </head>
 
 <body>
+  <!-- <div id="main"></div> -->
+  
   <script>
+    // コンポーネントの定義
+    var MyComponent = React.createClass({
+      getInitialState: function() {
+        return {count: 0}
+      },
       render: function() {
-      return (
-        <div>
-          <input type="text" onChange={this.doChange}></input>
-          <span>{this.state.count}</span>
-        </div>
-      );
-    }
+        return (
+                <div>
+                  <input type="text" onChange={this.doChange}></input>
+                  <span>{this.state.count}</span>
+                </div>
+                );
+      },
+      doChange: function(e) {
+        this.setState({count: e.target.value.length});
+      }
+    });
+
+    // コンポーネントの利用
+    ReactDOM.render(
+      React.createElement(MyComponent),
+      document.getElementById('main')
+    );
   </script>
 </body>
 
